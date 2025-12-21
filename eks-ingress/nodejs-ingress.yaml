@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nodejs-app
+  namespace: nodejs
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/backend-protocol: HTTP
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:445839263969:certificate/c4ddf359-86ee-4017-a926-2667ef63dec1
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/subnets: subnet-0b592f4400d992d94,subnet-08456b46622987164,subnet-05632553250e004b3
+    alb.ingress.kubernetes.io/load-balancer-name: eks-ingress
+    alb.ingress.kubernetes.io/group.name: shared-eks-alb
+spec:
+  rules:
+    - host: nodejs.pathyapushtak.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nodejs-service
+                port:
+                  number: 80
