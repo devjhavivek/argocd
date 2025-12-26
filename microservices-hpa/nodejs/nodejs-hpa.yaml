@@ -1,0 +1,15 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: nodejs-app
+  namespace: nodejs
+spec:
+  scaleTargetRef:
+    name: nodejs-app
+  minReplicaCount: 2
+  maxReplicaCount: 3
+  triggers:
+    - type: memory
+      metricType: Utilization
+      metadata:
+        value: "75"
