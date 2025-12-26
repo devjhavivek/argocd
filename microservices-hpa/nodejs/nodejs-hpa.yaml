@@ -2,14 +2,16 @@ apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
   name: nodejs-app
-  namespace: nodejs
+  namespace: nodejs # Ensure this matches the namespace of your Node.js deployment
 spec:
   scaleTargetRef:
-    name: nodejs-app
+    name: nodejs-app # Name of the Deployment to scale
+    kind: Deployment
+    apiVersion: apps/v1
   minReplicaCount: 2
-  maxReplicaCount: 3
+  maxReplicaCount: 2
   triggers:
     - type: memory
       metricType: Utilization
       metadata:
-        value: "75"
+        value: "70"
