@@ -1,0 +1,3 @@
+resources:
+ - nodejs/nodeclass.yaml
+ - nodejs/nodepool.yaml
