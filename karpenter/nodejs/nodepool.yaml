@@ -1,7 +1,7 @@
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
-  name: general
+  name: nodejs-nodepool
 spec:
   limits:
     cpu: "1000"
