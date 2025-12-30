@@ -3,13 +3,11 @@ kind: EC2NodeClass
 metadata:
   name: nodejs-nodeclass
 spec:
-  amiFamily: AL2
-  role: karpenter-node-eks-cluster-role
-  amiSelectorTerms:
-    - alias: al2@latest
+  amiFamily: AL2023
   subnetSelectorTerms:
     - tags:
         karpenter.sh/discovery: eks-cluster
   securityGroupSelectorTerms:
     - tags:
         karpenter.sh/discovery: eks-cluster
+  role: karpenter-node-eks-cluster-role
