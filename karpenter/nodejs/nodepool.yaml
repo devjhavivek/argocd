@@ -1,4 +1,4 @@
-apiVersion: karpenter.sh/v1beta1
+apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
   name: general
@@ -11,11 +11,11 @@ spec:
   template:
     spec:
       nodeClassRef:
-        name: default
+        name: nodejs-nodeclass
       requirements:
-        - key: karpenter.sh/capacity-type
-          operator: In
-          values: ["on-demand"]
         - key: kubernetes.io/arch
           operator: In
           values: ["amd64"]
+        - key: karpenter.sh/capacity-type
+          operator: In
+          values: ["on-demand"]

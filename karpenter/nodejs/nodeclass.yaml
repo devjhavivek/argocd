@@ -1,7 +1,7 @@
-apiVersion: karpenter.k8s.aws/v1beta1
+apiVersion: karpenter.k8s.aws/v1
 kind: EC2NodeClass
 metadata:
-  name: default
+  name: nodejs-nodeclass
 spec:
   amiFamily: AL2
   role: karpenter-node-eks-cluster-role
