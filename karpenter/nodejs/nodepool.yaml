@@ -1,7 +1,7 @@
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
-  name: nodejs-nodepool
+  name: default
 spec:
   template:
     spec:
@@ -24,7 +24,7 @@ spec:
       nodeClassRef:
         group: karpenter.k8s.aws
         kind: EC2NodeClass
-        name: nodejs-ec2-nodeclass
+        name: default
       expireAfter: 720h # 30 * 24h = 720h
   limits:
     cpu: 1000

@@ -11,7 +11,7 @@ spec:
   template:
     spec:
       nodeSelector:
-        karpenter.sh/nodepool: nodejs-nodepool
+        karpenter.sh/nodepool: default
     metadata:
       labels:
         app: nodejs-app
