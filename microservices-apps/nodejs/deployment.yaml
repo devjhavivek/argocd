@@ -9,9 +9,9 @@ spec:
     matchLabels:
       app: nodejs-app
   template:
-    # spec:
-    #   nodeSelector:
-    #     karpenter.sh/nodepool: nodejs-nodepool
+    spec:
+      nodeSelector:
+        karpenter.sh/nodepool: nodejs-nodepool
     metadata:
       labels:
         app: nodejs-app
