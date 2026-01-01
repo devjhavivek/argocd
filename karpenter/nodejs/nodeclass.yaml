@@ -1,19 +1,14 @@
 apiVersion: karpenter.k8s.aws/v1
 kind: EC2NodeClass
 metadata:
-  name: nodejs-nodeclass
+  name: nodejs-ec2-nodeclass
 spec:
-  amiFamily: AL2023
-
+  role: "karpenter-node-eks-cluster-role" # replace with your cluster name
   amiSelectorTerms:
-    - alias: al2023@latest
-
+    - alias: "al2023@Fedora-Cloud-Base-AmazonEC2.aarch64-43-Prerelease-20250920.0"
   subnetSelectorTerms:
     - tags:
-        karpenter.sh/discovery: eks-cluster
-
+        karpenter.sh/discovery: eks-cluster # replace with your cluster name
   securityGroupSelectorTerms:
     - tags:
         karpenter.sh/discovery: eks-cluster
-
-  role: karpenter-node-eks-cluster-role
