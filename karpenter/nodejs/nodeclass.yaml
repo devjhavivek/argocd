@@ -3,7 +3,7 @@ kind: EC2NodeClass
 metadata:
   name: default
 spec:
-  role: "karpenter-node-eks-cluster-role" # replace with your cluster name
+  role: "dev-eks-node-group-role" # replace with your cluster name
   amiSelectorTerms:
     - alias: "al2023@latest"
   subnetSelectorTerms:
